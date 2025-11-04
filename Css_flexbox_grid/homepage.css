@@ -1,0 +1,99 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Header */
+.header {
+  background-color: #222;
+  padding: 15px 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #00bfff;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.box {
+  background: white;
+  flex: 1 1 250px;
+  margin: 10px;
+  max-width: 300px;
+  padding: 30px 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: rotate(2deg);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+.box h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.box p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9em;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .box {
+    max-width: 90%;
+  }
+}
