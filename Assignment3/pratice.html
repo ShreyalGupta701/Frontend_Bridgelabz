@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Payroll Form</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f2f2f2;">
+
+<h1 style="text-align: center; font-weight: bold;">Employee Payroll Details</h1>
+
+<form style="width: 600px; margin: auto; padding: 20px; border: 2px solid #fff; border-radius: 10px; background-color: #fff;">
+
+    <fieldset style="border: none;">
+        <legend style="font-weight: bold; font-size: 18px; margin-bottom: 10px;">Employee Information</legend>
+
+        <!-- Employee Name -->
+        <label style="font-weight: bold; display: block; margin-top: 20px;">Name:</label>
+        <input type="text" name="name" placeholder="Enter full name" style="width: 100%; padding: 5px;">
+
+        <!-- Profile Image -->
+        <label style="font-weight: bold; display: block; margin-top: 20px;">Profile Image:</label>
+        <input type="radio" name="profile" value="profile1" checked>
+        <img src="https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg" width="70" height="70" alt="Profile 1">
+
+        <input type="radio" name="profile" value="profile2">
+        <img src="https://t3.ftcdn.net/jpg/15/34/03/58/360_F_1534035806_6gn57ou4V0dVZY6l30h6nEB5gWQRAP6v.jpg" width="70" height="70" alt="Profile 2">
+
+        <input type="radio" name="profile" value="profile3">
+        <img src="https://img.freepik.com/premium-vector/boy-with-blue-hoodie-blue-hoodie-with-hoodie-it_1230457-42660.jpg" width="70" height="70" alt="Profile 3">
+
+        <input type="radio" name="profile" value="profile4">
+        <img src="https://img.freepik.com/premium-vector/young-man-avatar-character-vector-illustration-design_24877-18514.jpg" width="70" height="70" alt="Profile 4">
+<br>
+        <!-- Gender -->
+        <label style="font-weight: bold; display: block; margin-top: 20px;">Gender:</label>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other
+<br>
+        <!-- Department -->
+        <label style="font-weight: bold; display: block; margin-top: 20px;">Department:</label>
+        <input type="checkbox" name="department" value="HR"> HR
+        <input type="checkbox" name="department" value="Finance"> Finance
+        <input type="checkbox" name="department" value="IT"> IT
+        <input type="checkbox" name="department" value="Marketing"> Marketing
+<br>
+        <!-- Salary -->
+        <label style="font-weight: bold; display: block; margin-top: 20px;">Salary:</label>
+        <select name="salary" style="width: 100%; padding: 5px;">
+            <option value="30000">₹30,000</option>
+            <option value="40000">₹40,000</option>
+            <option value="50000">₹50,000</option>
+            <option value="60000">₹60,000</option>
+            <option value="70000">₹70,000</option>
+        </select>
+<br>
+        <!-- Start Date -->
+        <label style="font-weight: bold; display: block; margin-top: 20px;">Start Date:</label>
+        <select name="start_day">
+            <option>1</option>
+            <option>2</option>
+            <option>31</option>
+        </select>
+        <select name="start_month">
+            <option>January</option>
+            <option>February</option>
+            <option>March</option>
+            <option >April</option>
+             <option >May</option>
+            <option >June</option>
+            <option >July</option>
+             <option >August</option>
+            <option >September</option>
+            <option >October</option>
+            <option >Novermber </option>
+            <option >December</option>
+
+        </select>
+        <select name="start_year">
+            <option>2023</option>
+            <option selected>2024</option>
+            <option>2025</option>
+        </select>
+<br>
+        <!-- Notes -->
+        <label style="font-weight: bold; display: block; margin-top: 20px;">Notes:</label>
+        <textarea name="notes" rows="4" style="width: 100%; padding: 5px;" placeholder="Enter any notes"></textarea>
+
+        <!-- Buttons -->
+        <div style="margin-top: 25px;">
+            <button type="button" style="padding: 10px 20px; border-radius: 10%; background-color: #ff4d4d; color: white; border: none;">Cancel</button>
+            <span style="float: right;">
+                <button type="submit" style="padding: 10px 20px; border-radius: 10%; background-color: #4CAF50; color: white; border: none;">Submit</button>
+                <button type="reset" style="padding: 10px 20px; border-radius: 10%; background-color: #808080; color: white; border: none;">Reset</button>
+            </span>
+            <div style="clear: both;"></div>
+        </div>
+
+    </fieldset>
+
+</form>
+
+</body>
+</html>

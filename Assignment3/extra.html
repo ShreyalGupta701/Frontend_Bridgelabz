@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/register" method="post">
+<fieldset>
+<legend>Sign Up</legend>
+<label for="user">Username:</label>
+<input type="text" id="user" name="username" required>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+<label>Gender:</label>
+<input type="radio" name="gender" value="M"> Male
+<input type="radio" name="gender" value="F"> Female
+<label for="course">Course:</label>
+<select id="course" name="course">
+<option value="html">HTML</option>
+<option value="css">CSS</option>
+<option value="js">JavaScript</option>
+</select>
+<button type="submit">Register</button>
+</fieldset>
+</form>
+    
+</body>
+</html>
