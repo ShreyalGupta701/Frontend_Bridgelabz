@@ -1,0 +1,52 @@
+/* Combined Responsive Web Demo
+   - Header with Flexbox, main grid with 3 sections, footer
+   - Fade-in animation and hover transitions
+   - Stack vertically below 700px
+*/
+
+* { box-sizing:border-box; }
+body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; color:#111; background:#fff; }
+.site-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem;
+  border-bottom:1px solid #eee;
+}
+.site-header nav { display:flex; gap:1rem; }
+.site-header nav a { text-decoration:none; color:#1a1a1a; padding:.4rem .6rem; border-radius:6px; transition:background .2s; }
+.site-header nav a:hover { background:#f0f6ff; }
+
+.grid-main {
+  max-width:1100px;
+  margin:1.25rem auto;
+  padding:1rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:1rem;
+  align-items:start;
+  animation: fadeIn .6s ease both;
+}
+
+/* gallery preview */
+.gallery-preview .thumbs { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; }
+.gallery-preview img { width:100%; height:120px; object-fit:cover; border-radius:8px; transition: transform .24s ease; }
+.gallery-preview img:hover { transform: scale(1.03); }
+
+/* explanation */
+.explanation { background:#f8fbff; padding:1rem; border-radius:8px; box-shadow:0 8px 20px rgba(13,20,30,0.04); }
+
+/* cheatsheet preview */
+.cheatsheet-preview { background:#fff7f6; padding:1rem; border-radius:8px; box-shadow:0 8px 20px rgba(13,20,30,0.04); }
+
+/* footer */
+.site-footer { text-align:center; padding:1rem; border-top:1px solid #eee; margin-top:1rem; }
+
+/* fade-in */
+@keyframes fadeIn { from {opacity:0; transform:translateY(6px)} to {opacity:1; transform:none} }
+
+/* Responsive: stack vertically under 700px */
+@media (max-width:700px) {
+  .grid-main { grid-template-columns: 1fr; }
+  .gallery-preview .thumbs { grid-template-columns: repeat(2,1fr); }
+}

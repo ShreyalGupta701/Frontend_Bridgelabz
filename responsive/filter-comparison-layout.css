@@ -1,0 +1,35 @@
+/* Filter Comparison Layout
+   - Two images side-by-side on desktop
+   - Right image has filter; fade away on hover
+   - Stack vertically below 700px
+*/
+
+* { box-sizing:border-box; }
+body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:#fff; color:#111; padding:1rem; }
+.compare {
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:1rem;
+  align-items:start;
+}
+
+/* side figures */
+.side { background:#fff; border-radius:8px; padding:.5rem; text-align:center; box-shadow:0 10px 26px rgba(12,20,30,0.04); }
+.side img { width:100%; height:420px; object-fit:cover; border-radius:6px; transition: filter .4s ease; display:block; }
+
+/* filter applied on right */
+.filtered .effect { filter: contrast(.7) brightness(.75) saturate(.9); }
+
+/* hover remove filter smoothly */
+.filtered:hover .effect { filter:none; }
+
+/* captions */
+figcaption { margin-top:.6rem; font-size:.95rem; color:#333; }
+
+/* Responsive - stack on small screens */
+@media (max-width:700px) {
+  .compare { grid-template-columns: 1fr; }
+  .side img { height:320px; }
+}

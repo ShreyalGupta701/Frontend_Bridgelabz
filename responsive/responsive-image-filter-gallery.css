@@ -1,0 +1,69 @@
+/* Responsive Image Filter Gallery
+   - CSS Grid with auto-fit minmax
+   - Remove filter on hover with smooth transition
+*/
+
+/* Basic page reset + typography */
+:root {
+  --gap: 1rem;
+  --max-width: 1100px;
+}
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#111; background:#f8f9fb; }
+header { text-align:center; padding:2rem 1rem; }
+h1 { margin:0 0 .25rem; font-size:clamp(1.25rem, 2.5vw, 2rem); }
+.gallery {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Figure styling */
+figure {
+  background: #fff;
+  border-radius: 8px;
+  padding: .5rem;
+  box-shadow: 0 6px 18px rgba(15,20,30,0.06);
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+}
+figure img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:6px;
+  transition: filter .45s ease, transform .35s ease;
+}
+
+/* captions */
+figcaption {
+  margin-top:.6rem;
+  font-size:.95rem;
+  text-align:center;
+  color:#333;
+}
+
+/* filters applied */
+.blur    { filter: blur(3px) saturate(.95); }
+.grayscale { filter: grayscale(100%); }
+.sepia   { filter: sepia(70%); }
+.brightness { filter: brightness(.6); }
+.contrast { filter: contrast(60%); }
+.hue     { filter: hue-rotate(200deg) saturate(1.1); }
+
+/* On hover remove filter and slightly scale up image */
+figure:hover img,
+figure:focus-within img {
+  filter: none !important;
+  transform: scale(1.02);
+}
+
+/* Responsive: stack one column under 600px (grid already handles, but ensure image heights adjust) */
+@media (max-width:600px) {
+  figure img { height: 260px; }
+  header { padding:1.25rem .75rem; }
+}

@@ -1,0 +1,16 @@
+/* Responsive Typography using clamp() and relative units */
+
+* { box-sizing:border-box; }
+body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:#fff; color:#111; display:flex; min-height:100vh; align-items:center; justify-content:center; padding:1rem; }
+.typography { max-width:900px; width:100%; padding:2rem; text-align:center; }
+
+/* Required font sizes */
+h1 { font-size: clamp(1.5rem, 4vw, 3rem); margin:0 0 1rem; line-height:1.05; }
+p  { font-size: clamp(1rem, 2vw, 1.5rem); margin:0 auto; line-height:1.6; max-width:70ch; }
+
+/* Below 700px adjust line-height and spacing */
+@media (max-width:700px) {
+  .typography { padding:1.25rem; }
+  h1 { line-height:1.08; margin-bottom:.75rem; }
+  p  { line-height:1.5; font-size: clamp(.98rem, 2.2vw, 1.2rem); }
+}

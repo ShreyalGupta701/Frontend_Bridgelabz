@@ -1,0 +1,40 @@
+/* Responsive Design Principles Summary
+   - Grid layout with hover gradient and color change
+   - Single-column under 600px
+*/
+
+* { box-sizing:border-box; }
+body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:#fff; color:#111; padding:1rem; }
+.principles {
+  max-width:1000px;
+  margin:0 auto;
+  display:grid;
+  gap:1rem;
+  grid-template-columns: repeat(3,1fr);
+}
+
+/* box style */
+.box {
+  background:#fafcff;
+  border-radius:10px;
+  padding:1rem;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+  box-shadow:0 10px 22px rgba(12,20,30,0.04);
+}
+.box h3 { margin:0 0 .5rem; }
+.box p { margin:0 0 .5rem; color:#444; }
+.box pre { margin:0; background: #f4f7ff; padding:.5rem; border-radius:6px; font-size:.9rem; overflow:auto }
+
+/* Hover gradient and text color change */
+.box:hover {
+  background: linear-gradient(135deg, #0b63d5, #3ea0ff);
+  color:#fff;
+  transform: translateY(-6px);
+}
+.box:hover pre { background: rgba(255,255,255,0.12); }
+
+/* Single column under 600px */
+@media (max-width:600px) {
+  .principles { grid-template-columns: 1fr; }
+  .box { display:flex; flex-direction:column; gap:.5rem; }
+}

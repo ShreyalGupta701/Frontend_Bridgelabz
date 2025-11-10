@@ -1,0 +1,46 @@
+/* Responsive CSS Cheat Sheet
+   - Grid layout with hover & transition
+   - On small screens below 700px, boxes stack and act like key:value pairs
+*/
+
+* { box-sizing:border-box; }
+body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:#fff; color:#111; }
+header { text-align:center; padding:1.5rem; background:#f6f9ff; border-bottom:1px solid #eee; }
+.cheatsheet {
+  max-width:1100px;
+  margin:1.25rem auto;
+  padding:1rem;
+  display:grid;
+  gap:1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Topic box */
+.topic {
+  background:#fafcff;
+  border-radius:10px;
+  padding:1rem;
+  box-shadow:0 8px 20px rgba(12,20,30,0.04);
+  transition: transform .22s ease, background .22s ease;
+}
+.topic h2 { margin:0 0 .5rem; font-size:1.05rem; }
+.topic p { margin:0; color:#444; }
+
+/* Hover interactivity */
+.topic:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(180deg, #fff, #f1f8ff);
+}
+
+/* Large screens: 2-3 columns handled above. Use 2 columns if width less than 1000 but greater than 700 */
+@media (max-width:1000px) and (min-width:701px) {
+  .cheatsheet { grid-template-columns: repeat(2,1fr); }
+}
+
+/* Small screens: stack rows; headings act like keys and text like values */
+@media (max-width:700px) {
+  .cheatsheet { grid-template-columns: 1fr; }
+  .topic { display:flex; gap:.75rem; align-items:flex-start; padding:.75rem; }
+  .topic h2 { min-width:140px; margin:0; font-size:1rem; color:#0b63d5; }
+  .topic p { margin:0; color:#333; }
+}
