@@ -1,0 +1,77 @@
+/* Team Members Layout */
+/* ------------------- */
+
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background-color: #283593;
+    color: white;
+    padding: 2em 0;
+}
+
+/* Flex container */
+.team-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 4rem 10%;
+}
+
+/* Individual card */
+.card {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 30%;
+    padding: 2em 1em;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Highlight the lead card */
+.lead {
+    background-color: #e3f2fd;
+    border: 3px solid #1976d2;
+}
+
+/* Profile image */
+.card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1em;
+}
+
+/* Text */
+.role {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0.5em;
+}
+
+/* Responsive layout: stack cards on small screens */
+@media (max-width: 600px) {
+    .card {
+        width: 90%;
+    }
+}

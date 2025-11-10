@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Course Registration</title>
+    <link rel="stylesheet" href="Task7.css">
+</head>
+<body>
+    <header>
+        <h1>Course Registration Form</h1>
+        <p>Fill in your details to enroll</p>
+    </header>
+
+    <form class="registration-form">
+        <label>Full Name:</label>
+        <input type="text" placeholder="Enter your full name" required>
+
+        <label>Email:</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Course:</label>
+        <select required>
+            <option value="">Select Course</option>
+            <option>Web Development</option>
+            <option>Python Programming</option>
+            <option>Data Science</option>
+            <option>Cyber Security</option>
+        </select>
+
+        <label>Gender:</label>
+        <div class="radio-group">
+            <input type="radio" name="gender" id="male"><label for="male">Male</label>
+            <input type="radio" name="gender" id="female"><label for="female">Female</label>
+        </div>
+
+        <label>Comments:</label>
+        <textarea placeholder="Any additional info..."></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <footer>
+        <p>© 2025 Online Academy</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/* Portfolio Page Styling */
+/* ---------------------- */
+
+/* Reset some defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fixed Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #212121;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    z-index: 1000;
+}
+
+/* Navigation styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+}
+
+nav a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    color: #ffb703;
+}
+
+/* Main content styling */
+main {
+    margin-top: 100px; /* leave space for fixed header */
+    padding: 5vh 10%;
+    background-color: #f9f9f9;
+    min-height: 70vh;
+}
+
+.intro {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Profile image */
+.intro img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #ffb703;
+}
+
+/* Bio section */
+.bio h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+}
+
+.bio p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Footer always at bottom */
+footer {
+    background-color: #212121;
+    color: #fff;
+    text-align: center;
+    padding: 1.5em 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .intro {
+        flex-direction: column;
+        text-align: center;
+    }
+}

@@ -1,0 +1,97 @@
+/* Pricing Table Layout */
+/* -------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    background: #283593;
+    color: white;
+    padding: 2em 0;
+}
+
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 3rem 10%;
+}
+
+/* Plan cards */
+.plan {
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 30%;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Equal height and hover animation */
+.plan:hover {
+    transform: scale(1.05);
+    background: #e8f0fe;
+}
+
+/* Highlighted plan */
+.popular {
+    border: 3px solid #1976d2;
+    background: #e3f2fd;
+}
+
+.plan h2 {
+    color: #283593;
+    margin-bottom: 1em;
+}
+
+.plan ul {
+    list-style: none;
+    margin-bottom: 1em;
+}
+
+.plan li {
+    padding: 0.5em 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Price and button */
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+a {
+    text-decoration: none;
+    background: #1976d2;
+    color: white;
+    padding: 0.7em 1.5em;
+    border-radius: 25px;
+    transition: background 0.3s ease;
+}
+
+a:hover {
+    background: #0d47a1;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .plan {
+        width: 90%;
+    }
+}
