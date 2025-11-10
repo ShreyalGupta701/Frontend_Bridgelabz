@@ -1,0 +1,27 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial; background: #f8f9fa; text-align: center; }
+header, footer { background: #343a40; color: white; padding: 1rem; }
+.card {
+    margin: 3rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 4px 10px #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+input, button {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 80%;
+}
+button {
+    background: #007bff; color: white; border: none;
+    transition: all 0.3s ease;
+}
+button:hover { background: #0056b3; transform: scale(1.05); }
+input:focus { outline: 2px solid #17a2b8; }

@@ -1,0 +1,18 @@
+body { text-align: center; background: #e9ecef; font-family: sans-serif; }
+.anim-container {
+    display: flex; justify-content: center; align-items: center;
+    gap: 2rem; height: 80vh;
+}
+.box { width: 60px; height: 60px; border-radius: 8px; }
+
+/* Moving box */
+.move { background: #007bff; animation: slide 3s infinite alternate ease-in-out; }
+@keyframes slide { from { transform: translateX(0); } to { transform: translateX(100px); } }
+
+/* Bouncing box */
+.bounce { background: #28a745; animation: bounce 1.2s infinite ease-in-out; }
+@keyframes bounce { 0%,100%{ transform: translateY(0);} 50%{transform: translateY(-40px);} }
+
+/* Color change */
+.color { background: #ffc107; animation: colorChange 3s infinite; }
+@keyframes colorChange { 0%{background:#ffc107;}50%{background:#fd7e14;}100%{background:#ffc107;} }

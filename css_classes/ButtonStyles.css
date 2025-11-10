@@ -1,0 +1,15 @@
+body { text-align: center; background: #f8f9fa; font-family: sans-serif; }
+.buttons {
+    display: flex; justify-content: center; gap: 1rem; margin-top: 3rem;
+}
+button {
+    padding: 10px 20px; border-radius: 8px; border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.primary { background: #007bff; color: white; }
+.secondary { background: #6c757d; color: white; }
+.outline { background: transparent; border: 2px solid #007bff; color: #007bff; }
+button:hover { transform: scale(1.05); }
+button:focus { outline: 3px solid #17a2b8; }
+button:disabled { background: #ccc; cursor: not-allowed; }

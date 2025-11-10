@@ -1,0 +1,14 @@
+/* Element selector */
+p { color: #333; }
+
+/* Class selector */
+.highlight { background: yellow; }
+
+/* ID selector */
+#unique { color: red; font-weight: bold; }
+
+/* Attribute selector */
+a[target="_blank"] { color: blue; }
+
+/* Descendant and child combinators */
+ul li { color: green; }
