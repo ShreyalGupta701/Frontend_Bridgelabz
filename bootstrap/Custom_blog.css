@@ -1,0 +1,11 @@
+/* Custom Theme Colors */
+:root {
+  --bs-primary: #6c63ff;
+  --bs-font-sans-serif: 'Poppins', sans-serif;
+}
+
+/* Smooth hover for cards */
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease;
+}

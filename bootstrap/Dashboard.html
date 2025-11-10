@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Store Dashboard</title>
+<style>
+  /* CSS Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #332f3f;
+    color: #000;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background-color: #4c455c;
+    width: 200px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar .store-title {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 20px 20px 20px;
+  }
+
+  .sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sidebar nav button {
+    background-color: #6270ea;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+  }
+
+  .sidebar nav button.active {
+    background-color: #3c50bf;
+  }
+
+  .sidebar .bottom {
+    padding: 0 20px;
+  }
+
+  .sidebar .bottom button {
+    background-color: #6270ea;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  /* Main content */
+  .main-content {
+    background-color: #c7dae3;
+    flex-grow: 1;
+    padding: 20px 40px;
+  }
+
+  .main-content h1 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .main-content p.intro {
+    margin-bottom: 20px;
+    max-width: 800px;
+  }
+
+  /* Cards container */
+  .cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    background-color: #dbdede;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  }
+
+  .card h3 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  /* Additional content for scrolling */
+  .extra-content {
+    font-size: 14px;
+    max-width: 800px;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #2d273a;
+    color: white;
+    padding: 10px 20px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+
+  /* Simple icons for sidebar */
+  .icon {
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div>
+      <div class="store-title">Store</div>
+      <nav>
+        <button class="active"><span class="icon">🏠</span> Home</button>
+        <button><span class="icon">🛒</span> Products</button>
+        <button><span class="icon">💬</span> Messages</button>
+        <button><span class="icon">📞</span> Contact</button>
+      </nav>
+    </div>
+    <div class="bottom">
+      <button><span class="icon">⚙️</span> Settings</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <h1>Welcome to the Store Dashboard</h1>
+    <p class="intro">
+      Lorem ipsum dolor sit amet consectetur adipiscing elit. Natus tenetur quis cumque, voluptatum fugit soluta quasquam quasi tempora dolorum sit esse minima amet exercitationem, maxime hic ad reiciendis? Nulla hic nobis beatae voluptatem illo atque officia excepturi tenetur necessitatibus excepturi quasi obcaecati esse ab ullam pariatur, a exercitationem nihil est ut doloribus totam? Explicabo, adipisci quasquam deserunt facilis dolor cumque reiciendis tenetur at enim reiciendis hic blanditiis molestiae, exercitationem dolores!
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Total Orders</h3>
+        <p>1,240 this month</p>
+      </div>
+      <div class="card">
+        <h3>Total Revenue</h3>
+        <p>$56,420</p>
+      </div>
+      <div class="card">
+        <h3>New Customers</h3>
+        <p>329 joined</p>
+      </div>
+      <div class="card">
+        <h3>Top Product</h3>
+        <p>Wireless Earbuds</p>
+      </div>
+    </div>
+
+    <div class="extra-content">
+      <p>More content for scrolling... Lorem ipsum dolor sit amet consectetur adipiscing elit. Vitae, iusto. Lorem ipsum dolor sit amet consectetur adipiscing elit. Tenetur, cupiditate.</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 My Store Dashboard | All Rights Reserved
+  </footer>
+</body>
+</html>
