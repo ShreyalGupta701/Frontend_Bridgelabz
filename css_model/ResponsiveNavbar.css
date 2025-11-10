@@ -1,0 +1,46 @@
+/* q10.css - Navigation Bar with Transitions & Hover */
+
+/* base */
+*{ box-sizing:border-box; }
+body{ margin:0; font-family: "Segoe UI", Roboto, Arial; color:#111; min-height:100vh; display:flex; flex-direction:column; }
+.nav-wrap{ display:flex; align-items:center; justify-content:space-between; padding:0.8rem 1rem; background:#ffffff; border-bottom:1px solid #eef2f7; position:sticky; top:0; z-index:20; }
+
+/* brand */
+.brand{ font-weight:700; font-size:1.1rem; color:#0f172a; }
+
+/* nav links - horizontal by default */
+.main-nav{ display:flex; gap:0.5rem; align-items:center; }
+.nav-link{
+  display:inline-block;
+  padding:0.5rem 0.9rem;
+  border-radius:8px;
+  border:1px solid transparent;
+  text-decoration:none;
+  color:#1f2937;
+  transition: all 0.3s ease; /* smooth hover transitions */
+}
+
+/* hover effect */
+.nav-link:hover{
+  transform: translateY(-3px);
+  border-color: rgba(34,197,94,0.12);
+  background: rgba(34,197,94,0.06);
+}
+
+/* active link highlight */
+.nav-link.active{
+  background:#10b981;
+  color:white;
+  box-shadow: 0 6px 18px rgba(16,185,129,0.16);
+  border-color: rgba(16,185,129,0.2);
+}
+
+/* Responsive: stack vertically below 700px */
+@media (max-width:700px){
+  .nav-wrap{ flex-direction:column; gap:0.6rem; align-items:stretch; }
+  .main-nav{ flex-direction:column; gap:0.45rem; padding:0 0.25rem; }
+  .nav-link{ width:100%; text-align:center; }
+}
+
+/* footer */
+.site-footer{ margin-top:auto; text-align:center; padding:1rem; background:#f8fafc; color:#374151; }

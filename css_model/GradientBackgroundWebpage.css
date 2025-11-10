@@ -1,0 +1,40 @@
+/* q3.css - Gradient Background Webpage */
+
+/* layout */
+*{ box-sizing:border-box; }
+body{ margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; color:#fff; min-height:100vh; display:flex; flex-direction:column; }
+.site-header, .site-footer{ background:rgba(0,0,0,0.5); padding:0.8rem 1rem; position:fixed; left:0; right:0; z-index:10; }
+.site-header{ top:0; display:flex; justify-content:space-between; align-items:center; }
+.site-footer{ bottom:0; text-align:center; font-size:0.9rem; }
+
+/* keep main content below fixed header */
+main{ margin-top:64px; margin-bottom:48px; }
+
+/* hero sections */
+.hero{ min-height:60vh; display:flex; align-items:center; justify-content:center; padding:2rem; position:relative; background-attachment:scroll; background-size:cover; }
+
+/* linear gradient section */
+.linear{
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f6d365 100%);
+}
+
+/* radial gradient section with fixed background to mimic parallax */
+.radial{
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 20%),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 20%),
+              radial-gradient(circle at center, #ff7a7a, #ffb3a7 40%, #ffdfba 100%);
+  background-attachment: fixed; /* parallax-like */
+}
+
+/* text container */
+.content{ max-width:900px; text-align:center; padding:1rem; background:rgba(0,0,0,0.15); border-radius:10px; }
+
+/* simple nav links */
+nav a{ color:rgba(255,255,255,0.9); margin-left:1rem; text-decoration:none; font-weight:600; }
+nav a:hover{ text-decoration:underline; }
+
+/* responsive */
+@media (max-width:600px){
+  .hero{ min-height:50vh; padding:1rem; }
+  nav a{ margin-left:0.5rem; font-size:0.95rem; }
+}

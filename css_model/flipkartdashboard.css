@@ -1,0 +1,214 @@
+/* styles.css - using only box-model properties + positioning (no grid/flexbox) */
+* { box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
+
+body {
+  margin: 0;
+  background: #f3f5f7;
+  color: #222;
+}
+
+/* Top bar (header): we use padding/margins/borders to place items */
+/* HEADER AREA */
+.topbar {
+  width: 100%;
+  background: #0078ff;
+  color: white;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 12px 0 12px;
+}
+
+/* brand, search, right-menu all inline using box model only */
+.topbar .brand,
+.topbar .search-box,
+.topbar .right-menu {
+  display: inline-block;
+  vertical-align: middle;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 4px;
+}
+
+/* brand */
+.topbar .brand {
+  width: 140px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* search box style (just box model, no input) */
+.topbar .search-box {
+  width: 50%;
+  background: #3188ff;
+  border-radius: 6px;
+  padding-left: 12px;
+  color: white;
+  opacity: 0.95;
+}
+
+/* right menu */
+.topbar .right-menu {
+  float: right;
+  width: 280px;
+  text-align: right;
+  font-size: 14px;
+  color: #fff;
+}
+
+.topbar .login-btn {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+/* second row navigation links */
+.nav-bar {
+  clear: both;
+  width: 100%;
+  background: #0078ff;
+  color: #fff;
+  font-size: 13px;
+  padding: 4px 0 8px 140px; /* indent to align under search */
+  opacity: 0.9;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 18px;
+}
+
+/* Page layout: sidebar + content using floats and widths (box-model only) */
+.page {
+  width: 92%;
+  margin: 20px auto;
+  padding: 10px;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 19%;
+  float: left;
+  padding: 16px;
+  border-right: 1px solid rgba(0,0,0,0.04);
+  min-height: 520px;
+  background: #fafafa;
+  margin-right: 2%;
+}
+
+/* Content column next to sidebar */
+.content {
+  width: 79%;
+  float: left;
+  padding: 12px 18px;
+  min-height: 520px;
+}
+
+/* Breadcrumbs and sort row (separated using margin/padding) */
+.breadcrumb {
+  height: 28px;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+  color: #666;
+}
+
+/* Sort row: create two inline boxes, use margin to push right one inline */
+.sort-row { margin: 12px 0 20px 0; height: 28px; }
+.sort-row .sort-left {
+  display: inline-block;
+  vertical-align: top;
+  height: 28px;
+  line-height: 28px;
+  margin-right: 8px;
+}
+.sort-row .sort-right {
+  display: inline-block;
+  vertical-align: top;
+  height: 28px;
+  line-height: 28px;
+  margin-left: 10px;
+  color: #0f74ff;
+}
+
+/* Product row: using floated cards, fixed widths + margins to create grid */
+.product-row { overflow: hidden; /* clear floats */ margin-top: 8px; }
+
+/* Each card is a block with border, padding and margin */
+.card {
+  width: 23%;
+  float: left;
+  margin-right: 2%;
+  margin-bottom: 20px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  min-height: 160px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+
+/* remove extra margin on every fourth card to wrap nicely */
+.card:nth-child(4n) { margin-right: 0; }
+
+/* image placeholder: sized using padding & height (box-model) */
+.imgbox {
+  width: 100%;
+  height: 72px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: linear-gradient(#e9eef6, #f8fbff);
+  padding: 6px;
+}
+
+/* title and price boxes */
+.title {
+  height: 36px;
+  padding: 4px 0;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+}
+.price {
+  height: 28px;
+  padding-top: 4px;
+  font-weight: 700;
+  color: #0a8f5a;
+}
+
+/* Sidebar contents */
+.filter-title { font-weight: 700; margin-bottom: 10px; }
+.filter-list { list-style: none; padding: 0; margin: 0; }
+.filter-list li {
+  padding: 8px 6px;
+  margin-bottom: 6px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+
+/* pager/footer */
+.pager { clear: both; margin-top: 12px; padding: 10px 0; color: #666; }
+.footer {
+  clear: both;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 16px 0 0 0;
+  color: #888;
+}
+
+/* small responsive tweak without grid/flexbox: reduce widths on narrow screens */
+@media (max-width: 800px) {
+  .sidebar { width: 100%; float: none; border-right: none; margin-right: 0; }
+  .content { width: 100%; float: none; margin-top: 12px; }
+  .card { width: 48%; margin-right: 4%; }
+  .card:nth-child(2n) { margin-right: 0; }
+}
+@media (max-width: 420px) {
+  .card { width: 100%; margin-right: 0; }
+}

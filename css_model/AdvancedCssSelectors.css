@@ -1,0 +1,63 @@
+/* q5.css - Advanced Selectors */
+
+/* base */
+*{box-sizing:border-box;}
+body{ font-family: Arial, sans-serif; margin:0; padding:1rem; color:#111; background:#f7f8fa; }
+header{ text-align:center; margin-bottom:1rem; }
+
+/* ----------------------------
+   Attribute selectors
+   [type="text"] targets input elements whose type attribute exactly equals "text"
+   [href^="https"] selects anchors with href starting with "https"
+   ---------------------------- */
+input[type="text"]{
+  padding:0.5rem; border-radius:6px; border:1px solid #cbd5e1; outline:none;
+}
+input[type="text"]:focus{
+  border-color:#2563eb; box-shadow:0 0 0 4px rgba(37,99,235,0.08);
+}
+
+a[href^="https"]{
+  color: #065f46;
+  font-weight:600;
+  text-decoration:none;
+  padding:0.2rem 0.4rem;
+  border-radius:4px;
+}
+
+/* pseudo-classes: hover and focus */
+a:hover { text-decoration:underline; }
+
+/* ----------------------------
+   Pseudo-classes and combinators
+   .item-list > li    -> child combinator: direct children only
+   li + li            -> adjacent sibling combinator: targets li directly after another li
+   li ~ li            -> general sibling combinator: targets following siblings
+   :nth-child(odd)    -> selects odd-numbered children
+   ---------------------------- */
+.item-list{ list-style:none; padding:0; margin:1rem 0; display:flex; gap:0.5rem; flex-wrap:wrap; }
+.item-list > li{
+  background:#fff; padding:.6rem .9rem; border-radius:8px; border:1px solid #e6e9ef;
+}
+
+/* adjacent sibling: style item that follows another item */
+.item-list li + li{ border-left:3px solid rgba(37,99,235,0.08); }
+
+/* nth-child */
+.item-list li:nth-child(odd){ font-weight:600; }
+
+/* general sibling: style any li that comes after the first li */
+.item-list li:first-child ~ li{ opacity:0.95; }
+
+/* ----------------------------
+   Pseudo-elements: ::before and ::after
+   Add decorative bullets before each list item
+   ---------------------------- */
+.item-list li::before{
+  content:"★";
+  margin-right:0.5rem;
+  color:#f59e0b;
+  display:inline-block;
+}
+
+/* comments explain each selector above */

@@ -1,0 +1,41 @@
+/* q4.css - Shadows & Depth */
+
+/* base */
+*{ box-sizing:border-box; }
+body{ margin:0; min-height:100vh; font-family: "Segoe UI", Roboto, Arial; display:flex; flex-direction:column; color:#222; }
+header, footer{ text-align:center; padding:1rem; background:#fafafa; }
+
+/* row of cards using flexbox */
+.card-row{ display:flex; gap:1.25rem; justify-content:center; align-items:flex-start; padding:2rem; flex-wrap:wrap; }
+
+/* card base styles */
+.card{
+  background:white;
+  width:260px;
+  padding:1.25rem;
+  border-radius:12px;
+  transition: transform .28s ease, box-shadow .28s ease;
+  text-align:center;
+  cursor:default;
+}
+
+/* different base shadows */
+.card-1{ box-shadow: 0 2px 6px rgba(16,24,40,0.06); }
+.card-2{ box-shadow: 0 6px 18px rgba(15,23,42,0.12); }
+.card-3{ box-shadow: 0 10px 28px rgba(12,18,36,0.18); }
+
+/* text-shadow on headings for extra depth */
+.card h2{ margin:0 0 .5rem 0; text-shadow: 0 1px 0 rgba(0,0,0,0.06); }
+
+/* hover: lift up with larger shadow */
+.card:hover{
+  transform: translateY(-12px);
+}
+.card-1:hover{ box-shadow: 0 10px 30px rgba(16,24,40,0.18); }
+.card-2:hover{ box-shadow: 0 16px 40px rgba(15,23,42,0.22); }
+.card-3:hover{ box-shadow: 0 22px 60px rgba(12,18,36,0.28); }
+
+/* responsive */
+@media (max-width:760px){
+  .card-row{ flex-direction:column; align-items:center; }
+}

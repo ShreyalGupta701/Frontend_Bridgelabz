@@ -1,0 +1,53 @@
+/* q1.css - Borders & Padding Demo */
+
+/* basic layout + readable typography */
+:root{
+  --gap: 1rem;
+  --bg: #f7f8fa;
+  --card-bg: #ffffff;
+  --accent: #2b6cb0;
+}
+
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:#222; }
+header { padding:1rem; text-align:center; background:linear-gradient(90deg,#f0f4ff,#ffffff); border-bottom:1px solid #e4e7ee; }
+main { padding:1.5rem; display:flex; justify-content:center; align-items:flex-start; }
+
+/* Flex row of boxes */
+.box-row {
+  display:flex;
+  gap:var(--gap);
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:stretch;
+}
+
+/* base demo box */
+.demo {
+  background:var(--card-bg);
+  padding:12px;
+  min-width:200px;
+  width:220px;
+  transition: border-color .25s ease, transform .18s ease;
+  /* subtle inner spacing demonstration (will be varied per class) */
+}
+
+/* Border styles */
+.box.solid { border:4px solid #4a5568; padding:12px; }
+.box.dashed { border:3px dashed #b83232; padding:18px; }
+.box.double { border:6px double #2d3748; padding:24px; }
+.box.groove { border:5px groove #22543d; padding:20px; }
+
+/* rounded corners example */
+.rounded { border-radius:12px; }
+
+/* hover effect: change border color smoothly and lift slightly */
+.demo:hover {
+  border-color: #ff7f50; /* new color on hover */
+  transform: translateY(-6px);
+}
+
+/* small responsive tweak */
+@media (max-width:600px){
+  .box-row { flex-direction:column; align-items:center; }
+}

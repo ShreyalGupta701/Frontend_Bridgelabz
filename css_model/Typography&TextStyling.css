@@ -1,0 +1,37 @@
+/* q7.css - Typography & Text Styling */
+
+/* base and rhythm */
+*{ box-sizing:border-box; }
+body{ margin:0; font-family: Georgia, "Times New Roman", serif; color:#111; line-height:1.6; background:#fff; }
+header{ background:#f3f4f6; padding:1rem; text-align:center; }
+main{ padding:2rem; display:flex; justify-content:center; }
+
+/* article container for good measure */
+.article{ max-width:720px; padding:1.25rem; }
+
+/* Headings: different font-family and weights */
+h1{ font-family: "Segoe UI", Roboto, Arial, sans-serif; font-weight:700; letter-spacing: -0.02em; margin:0 0 .5rem 0; }
+h2{ font-family: "Segoe UI", Roboto, Arial, sans-serif; font-weight:600; margin:.25rem 0 1rem 0; }
+
+/* paragraph variations: demonstrating font-size, line-height & letter-spacing */
+.article p{ font-size:1rem; color:#222; margin-bottom:1rem; }
+.article .sample{ font-family: "Helvetica Neue", Arial, sans-serif; font-weight:400; font-size:1.02rem; letter-spacing:0.01em; line-height:1.8; background:#fff; }
+
+/* styling mark, strong, em */
+mark{ background:#fff3b0; color:#78350f; padding:0.12rem 0.28rem; border-radius:3px; }
+strong{ color:#0f172a; font-weight:700; }
+em{ color:#0f4c81; font-style:italic; }
+
+/* ::first-letter and ::first-line */
+.article p::first-letter{
+  font-size:2.4rem; font-weight:700; float:left; line-height:1; margin-right:0.12rem; color:#b91c1c;
+}
+.article p::first-line{
+  font-variant:small-caps; letter-spacing:0.03em; color:#374151;
+}
+
+/* ensure readable contrast */
+@media (max-width:600px){
+  .article{ padding:1rem; }
+  h1{ font-size:1.25rem; }
+}

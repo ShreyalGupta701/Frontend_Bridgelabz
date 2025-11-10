@@ -1,0 +1,44 @@
+/* q8.css - Box Model Exploration */
+
+/* base */
+*{ box-sizing:border-box; }
+body{ margin:0; font-family: Arial, sans-serif; color:#111; background:#f9fafb; }
+header, footer{ text-align:center; padding:0.75rem; background:#fff; }
+
+/* center demonstration */
+.demo-center{ display:flex; gap:2rem; align-items:center; justify-content:center; padding:2rem; flex-wrap:wrap; }
+
+/* visual box model nested elements */
+.box-model{ display:flex; align-items:center; justify-content:center; }
+
+/* margin layer (outermost) */
+.margin{
+  background:transparent;
+  padding:0.8rem; /* visual space around border */
+  margin:1rem; /* intentionally visible margin area */
+  outline: 2px dashed rgba(99,102,241,0.18); /* outline to show margin boundary */
+}
+
+/* border layer */
+.border{
+  border:6px solid #2563eb; background:rgba(99,102,241,0.05); padding:0.6rem;
+}
+
+/* padding layer */
+.padding{
+  background:#c7f9cc; padding:18px; border-radius:6px;
+}
+
+/* content area */
+.content{
+  background:#ffffff; padding:12px; min-width:160px; min-height:70px; display:flex; align-items:center; justify-content:center; border:1px solid #e6edf3;
+}
+
+/* show difference with border-box example */
+.explain{ max-width:300px; background:#fff; padding:1rem; border-radius:8px; box-shadow:0 6px 18px rgba(13,34,64,0.06); }
+.explain code{ background:#f1f5f9; padding:0.1rem .3rem; border-radius:4px; }
+
+/* smaller screens */
+@media (max-width:700px){
+  .demo-center{ flex-direction:column; }
+}
