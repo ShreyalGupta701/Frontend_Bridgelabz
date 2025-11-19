@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List Manager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+            padding: 6px;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            margin-left: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Product List Manager</h2>
+
+    <input type="text" id="productInput" placeholder="Enter product name">
+    <button id="addBtn">Add Product</button>
+
+    <ul id="productList"></ul>
+
+    <script>
+        // Selecting elements
+        const productInput = document.getElementById("productInput");
+        const addBtn = document.getElementById("addBtn");
+        const productList = document.getElementById("productList");
+
+        let currentEditing = null;
+
+        // Add new product
+        addBtn.addEventListener("click", () => {
+            const value = productInput.value.trim();
+            if (!value) return;
+
+            addProductItem(value);
+            productInput.value = "";
+        });
+
+        // Function to create a product item
+        function addProductItem(text) {
+            const li = document.createElement("li");
+
+            li.innerHTML = `
+                <span class="productText">${text}</span>
+                <div>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            `;
+
+            productList.appendChild(li);
+        }
+
+        // EVENT DELEGATION for Edit/Delete
+        productList.addEventListener("click", (event) => {
+            const target = event.target;
+
+            // Delete Product
+            if (target.classList.contains("deleteBtn")) {
+                target.closest("li").remove();
+                return;
+            }
+
+            // Edit Product
+            if (target.classList.contains("editBtn")) {
+                startEditing(target.closest("li"));
+            }
+        });
+
+        // Start inline editing
+        function startEditing(li) {
+            if (currentEditing) finishEditing(currentEditing); // auto-save previous edit
+
+            currentEditing = li;
+
+            const span = li.querySelector(".productText");
+            const oldValue = span.textContent;
+
+            // Replace span with input
+            span.outerHTML = `<input type="text" class="editInput" value="${oldValue}">`;
+
+            const input = li.querySelector(".editInput");
+            input.focus();
+        }
+
+        // Finish editing (save value)
+        function finishEditing(li) {
+            if (!li) return;
+
+            const input = li.querySelector(".editInput");
+            if (!input) return;
+
+            const newValue = input.value.trim() || "Untitled";
+
+            input.outerHTML = `<span class="productText">${newValue}</span>`;
+
+            currentEditing = null;
+        }
+
+        // Auto-save when clicking outside
+        document.addEventListener("click", (event) => {
+            if (!currentEditing) return;
+
+            if (!currentEditing.contains(event.target)) {
+                finishEditing(currentEditing);
+            }
+        });
+    </script>
+
+</body>
+</html>

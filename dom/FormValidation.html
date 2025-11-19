@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    form {
+      width: 350px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .field-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 4px;
+      display: none;
+    }
+    #success {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Form Validation with preventDefault()</h2>
+
+<form id="myForm">
+  
+  <div class="field-group">
+    <label>Name:</label>
+    <input type="text" id="name">
+    <div class="error" id="nameError">Name is required</div>
+  </div>
+
+  <div class="field-group">
+    <label>Email:</label>
+    <input type="text" id="email">
+    <div class="error" id="emailError">Enter a valid email containing @</div>
+  </div>
+
+  <div class="field-group">
+    <label>Password:</label>
+    <input type="password" id="password">
+    <div class="error" id="passwordError">Password must be at least 6 characters</div>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+
+<div id="success">Form Submitted Successfully!</div>
+
+<script>
+  const form = document.getElementById("myForm");
+
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const passInput = document.getElementById("password");
+
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const passError = document.getElementById("passwordError");
+
+  const success = document.getElementById("success");
+
+  // Helper to validate fields in real time
+  function validateField() {
+    // Name
+    if (nameInput.value.trim() === "") {
+      nameError.style.display = "block";
+    } else {
+      nameError.style.display = "none";
+    }
+
+    // Email
+    if (!emailInput.value.includes("@") || emailInput.value.trim() === "") {
+      emailError.style.display = "block";
+    } else {
+      emailError.style.display = "none";
+    }
+
+    // Password
+    if (passInput.value.length < 6) {
+      passError.style.display = "block";
+    } else {
+      passError.style.display = "none";
+    }
+  }
+
+  // Real-time validation
+  nameInput.addEventListener("input", validateField);
+  emailInput.addEventListener("input", validateField);
+  passInput.addEventListener("input", validateField);
+
+  // On submit
+  form.addEventListener("submit", function (e) {
+    validateField(); // Check again
+
+    if (
+      nameInput.value.trim() === "" ||
+      !emailInput.value.includes("@") ||
+      passInput.value.length < 6
+    ) {
+      e.preventDefault();  // Stop form submission
+      success.style.display = "none"; // Hide success message
+    } else {
+      e.preventDefault(); // For demonstration: block actual submission
+      success.style.display = "block";
+      form.reset(); // Clear form
+    }
+  });
+</script>
+
+</body>
+</html>

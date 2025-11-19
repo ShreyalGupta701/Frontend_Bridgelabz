@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Character Counter</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        #counter {
+            font-weight: bold;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Live Character Counter</h2>
+
+    <textarea id="textArea" rows="5" cols="40" placeholder="Start typing..."></textarea>
+    <div id="counter">100 characters remaining</div>
+
+    <button id="resetBtn">Reset</button>
+
+    <script>
+        const textArea = document.getElementById("textArea");
+        const counter = document.getElementById("counter");
+        const resetBtn = document.getElementById("resetBtn");
+
+        const MAX_CHAR = 100;
+
+        // Handle typing
+        textArea.addEventListener("input", updateCounter);
+
+        // Prevent typing after limit
+        textArea.addEventListener("keydown", function (event) {
+            if (textArea.value.length >= MAX_CHAR && 
+                event.key !== "Backspace" &&
+                event.key !== "Delete" &&
+                !event.ctrlKey && !event.metaKey) {
+                event.preventDefault(); // Stop typing
+            }
+        });
+
+        function updateCounter() {
+            const remaining = MAX_CHAR - textArea.value.length;
+
+            counter.textContent = `${remaining} characters remaining`;
+
+            // Color changes
+            if (remaining <= 0) {
+                counter.style.color = "red";
+            } else if (remaining <= 20) {
+                counter.style.color = "orange";
+            } else {
+                counter.style.color = "black";
+            }
+        }
+
+        // Reset button clears all
+        resetBtn.addEventListener("click", () => {
+            textArea.value = "";
+            counter.textContent = `${MAX_CHAR} characters remaining`;
+            counter.style.color = "black";
+        });
+    </script>
+
+</body>
+</html>

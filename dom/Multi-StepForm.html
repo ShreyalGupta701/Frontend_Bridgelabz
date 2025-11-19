@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Step Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .step {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        #summary {
+            display: none;
+            background: #f2f2f2;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Multi-Step Form</h2>
+
+    <!-- Step 1 -->
+    <div class="step active" id="step1">
+        <label>Name:</label><br>
+        <input type="text" id="nameInput" placeholder="Enter name"><br>
+        <button id="next1">Next</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step" id="step2">
+        <label>Email:</label><br>
+        <input type="text" id="emailInput" placeholder="Enter email"><br>
+        <button id="back2">Back</button>
+        <button id="next2">Next</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step" id="step3">
+        <label>Password:</label><br>
+        <input type="password" id="passwordInput" placeholder="Enter password"><br>
+        <button id="back3">Back</button>
+        <button id="finishBtn">Finish</button>
+    </div>
+
+    <!-- Summary -->
+    <div id="summary">
+        <h3>Summary</h3>
+        <p><strong>Name:</strong> <span id="sumName"></span></p>
+        <p><strong>Email:</strong> <span id="sumEmail"></span></p>
+        <p><strong>Password:</strong> <span id="sumPassword"></span></p>
+    </div>
+
+    <script>
+        const steps = document.querySelectorAll(".step");
+
+        const step1 = document.getElementById("step1");
+        const step2 = document.getElementById("step2");
+        const step3 = document.getElementById("step3");
+
+        const next1 = document.getElementById("next1");
+        const next2 = document.getElementById("next2");
+        const back2 = document.getElementById("back2");
+        const back3 = document.getElementById("back3");
+
+        const finishBtn = document.getElementById("finishBtn");
+
+        const nameInput = document.getElementById("nameInput");
+        const emailInput = document.getElementById("emailInput");
+        const passwordInput = document.getElementById("passwordInput");
+
+        const summaryBox = document.getElementById("summary");
+        const sumName = document.getElementById("sumName");
+        const sumEmail = document.getElementById("sumEmail");
+        const sumPassword = document.getElementById("sumPassword");
+
+        // Function to show a specific step
+        function showStep(stepNumber) {
+            steps.forEach(step => step.classList.remove("active"));
+            document.getElementById("step" + stepNumber).classList.add("active");
+        }
+
+        // Step 1 → Step 2
+        next1.addEventListener("click", () => {
+            if (nameInput.value.trim() === "") {
+                alert("Please enter your name");
+                return;
+            }
+            showStep(2);
+        });
+
+        // Step 2 → Step 3
+        next2.addEventListener("click", () => {
+            const email = emailInput.value.trim();
+
+            if (email === "" || !email.includes("@") || !email.includes(".")) {
+                alert("Please enter a valid email");
+                return;
+            }
+
+            showStep(3);
+        });
+
+        // Back buttons
+        back2.addEventListener("click", () => showStep(1));
+        back3.addEventListener("click", () => showStep(2));
+
+        // Finish → Show Summary
+        finishBtn.addEventListener("click", () => {
+            const password = passwordInput.value.trim();
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters");
+                return;
+            }
+
+            // Show final summary
+            sumName.textContent = nameInput.value;
+            sumEmail.textContent = emailInput.value;
+            sumPassword.textContent = "*".repeat(password.length);
+
+            summaryBox.style.display = "block";
+
+            // Hide form steps
+            steps.forEach(step => (step.style.display = "none"));
+        });
+    </script>
+
+</body>
+</html>
