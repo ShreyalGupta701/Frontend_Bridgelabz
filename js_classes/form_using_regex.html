@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> <title>Student Registration</title> </head>
+<body>
+<form id="regForm">
+<input id="name" placeholder="Name"><br>
+<input id="email" placeholder="Email"><br>
+<input id="age" type="number" placeholder="Age"><br>
+<button type="submit">Register</button>
+</form>
+<script>
+class Student {
+constructor(name, email, age) {
+this.name = name;
+this.email = email;
+this.age = age;
+}}
+let students = [];
+document.getElementById("regForm").onsubmit = function(e) {
+e.preventDefault();
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let age = document.getElementById("age").value;
+let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+if (!emailPattern.test(email)) {
+alert("Invalid Email!");
+return;
+}
+let newStudent = new Student(name, email, age);
+students.push(newStudent);
+console.log("Registered Students:");
+for (let s of students) {
+console.log(`${s.name} - ${s.email} - ${s.age}`);
+}
+};
+</script>
+</body>
+</html>

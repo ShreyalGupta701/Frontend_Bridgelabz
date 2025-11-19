@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive List</title>
+    <style>
+        /* special 3rd item */
+        .special {
+            background-color: lightyellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>List of Items</h2>
+
+<input type="text" id="newItem" placeholder="Enter item">
+<button id="addBtn">Add Item</button>
+
+<ul id="itemList"></ul>
+
+<script>
+"use strict";
+
+let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
+
+// Load initial items
+function loadItems() {
+    const list = document.getElementById("itemList");
+
+    items.forEach((text, index) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+
+        if (index === 2) {
+            li.classList.add("special");
+        }
+
+        // Add event listener to each item
+        li.addEventListener("click", function () {
+            li.style.fontSize = "22px";
+            li.style.color = "red";
+            li.textContent = li.textContent;
+        });
+
+        list.appendChild(li);
+    });
+}
+
+// Add new item with appendChild
+document.getElementById("addBtn").addEventListener("click", function () {
+    const value = document.getElementById("newItem").value.trim();
+    if (value === "") {
+        alert("Enter valid item");
+        return;
+    }
+
+    const li = document.createElement("li");
+    li.textContent = value;
+
+    // Each new item gets click event listener too
+    li.addEventListener("click", function () {
+        li.style.fontSize = "22px";
+        li.style.color = "red";
+        li.textContent = li.textContent;
+    });
+
+    document.getElementById("itemList").appendChild(li);
+    document.getElementById("newItem").value = "";
+});
+
+// Load items at start
+loadItems();
+</script>
+
+</body>
+</html>
