@@ -1,0 +1,12 @@
+// makeMultiplier.js
+
+function makeMultiplier(multiplier) {
+    return function(number) {
+        return number * multiplier;
+    };
+}
+
+const triple = makeMultiplier(3);
+console.log(triple(5)); // 15
+
+// Explanation: The inner function remembers 'multiplier' from its creation scope → closure
